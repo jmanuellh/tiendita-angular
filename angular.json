@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "tiendita-angular"
+  "defaultProject": "tiendita-angular",
+  "cli": {
+    "analytics": "7e18b2a9-5eda-4c74-8e84-51e3f3c10d50"
+  }
 }
