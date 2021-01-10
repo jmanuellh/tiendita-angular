@@ -13,6 +13,7 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatIconModule } from "@angular/material/icon";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatListModule } from "@angular/material/list";
+import { MatTableModule } from "@angular/material/table";
 
 
 @NgModule({
@@ -29,13 +30,17 @@ import { MatListModule } from "@angular/material/list";
     MatToolbarModule,
     MatIconModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatTableModule
+
   ],
   exports: [
     MatToolbarModule,
     MatIconModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatTableModule
+
   ],
   providers: [
     ProductoService

@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { ProductoComponent } from './component/producto/producto.component';
 
 
-
 @NgModule({
   declarations: [ProductoComponent],
   imports: [
-    CommonModule
+    CommonModule,
+  ],
+  exports: [
   ]
 })
 export class ProductoModule { }
