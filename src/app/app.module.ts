@@ -14,6 +14,11 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatListModule } from "@angular/material/list";
 import { MatTableModule } from "@angular/material/table";
+import { MatButtonModule } from "@angular/material/button";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { MatInputModule } from "@angular/material/input";
+
 
 
 @NgModule({
@@ -31,16 +36,24 @@ import { MatTableModule } from "@angular/material/table";
     MatIconModule,
     MatSidenavModule,
     MatListModule,
-    MatTableModule
-
+    MatTableModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule
   ],
   exports: [
     MatToolbarModule,
     MatIconModule,
     MatSidenavModule,
     MatListModule,
-    MatTableModule
-
+    MatTableModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule
   ],
   providers: [
     ProductoService

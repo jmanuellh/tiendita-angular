@@ -1,7 +1,13 @@
-.sidenav-content {
+.sidenav-container {
     height: 100%;
 }
 
-.titulo-toolbar {
-    margin-left: .5rem;
+
+// mat-icon {
+//     cursor: pointer;
+// }
+
+span[routerLink] {
+    cursor: pointer;
 }
+

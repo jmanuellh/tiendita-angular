@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Producto } from '../../model/producto.model';
 import { ProductoService } from "../../service/producto.service";
+import { FormBuilder } from "@angular/forms";
 
 @Component({
   selector: 'app-producto',
@@ -9,8 +10,12 @@ import { ProductoService } from "../../service/producto.service";
 })
 export class ProductoComponent implements OnInit {
   productos: Producto[] = []
+  public productoForm = this.fb.group({
+    nombre: [''],
+    precio: ['']
+  });
 
-  constructor(public productoService: ProductoService) { }
+  constructor(public productoService: ProductoService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.obtenerProductos()
@@ -21,6 +26,10 @@ export class ProductoComponent implements OnInit {
       .subscribe( response => {
         this.productos = response.data
     });
+  }
+
+  agregarProducto() {
+    
   }
 
 }

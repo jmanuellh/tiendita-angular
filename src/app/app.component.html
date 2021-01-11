@@ -1,25 +1,20 @@
 <mat-toolbar color="primary">
-  <div>
-    <button  
-      type="button"
+    <button
       mat-icon-button
       (click)="sidenav.toggle()"
-      class="example-icon"
       aria-label="Example icon-button with menu icon"
     >
       <mat-icon>menu</mat-icon>
     </button>
-  </div>
-  <div class="titulo-toolbar">
-    Tienda
-  </div>
+    <span routerLink="/inicio">
+      Tienda
+    </span>
 </mat-toolbar>
 
-<mat-sidenav-container class="sidenav-content">
+<mat-sidenav-container class="sidenav-container">
   <mat-sidenav #sidenav>
-    <mat-nav-list>
-      <a routerLink="inicio" mat-list-item>Inicio</a>
-      <a routerLink="productos" mat-list-item>Productos</a>
+    <mat-nav-list *ngFor="let link of links">
+      <a [routerLink]="link.url" (click)="sidenav.close()" mat-list-item>{{link.nombre}}</a>
    </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

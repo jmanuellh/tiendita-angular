@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'tiendita-angular';
+  links: {url:string, nombre:string}[] = [
+    {
+      url: "inicio",
+      nombre: "Inicio"
+    },
+    {
+      url: "productos",
+      nombre: "Productos"
+    }
+  ];
 }
