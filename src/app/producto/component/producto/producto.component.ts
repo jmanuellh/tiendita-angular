@@ -21,15 +21,22 @@ export class ProductoComponent implements OnInit {
     this.obtenerProductos()
   }
 
-  obtenerProductos() {
+  limpiarForm(): void {
+    this.productoForm.reset()
+  }
+
+  obtenerProductos(): void {
     this.productoService.getProductos()
       .subscribe( response => {
         this.productos = response.data
     });
   }
 
-  agregarProducto() {
-    
+  agregarProducto(): void {
+    this.productoService.agregarProducto(this.productoForm.value)
+      .subscribe( () => {
+        this.limpiarForm()
+        this.obtenerProductos()
+      })
   }
-
 }

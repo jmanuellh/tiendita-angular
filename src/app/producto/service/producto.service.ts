@@ -7,6 +7,9 @@ import { Producto } from "../model/producto.model";
   providedIn: 'root'
 })
 export class ProductoService {
+  agregarProducto(producto: Producto): Observable<void> {
+    return this.http.post<any>(this.baseUrl+'/productos', producto);
+  }
   private baseUrl: string = 'http://127.0.0.1:8000/api';
 
   constructor(private http: HttpClient) {}

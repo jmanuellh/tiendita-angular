@@ -1,25 +1,29 @@
-<div>
-    <form [formGroup]="productoForm">
+<div class="margen-principal">
+    <h1>Productos</h1>
+</div>
+
+<div class="div-form margen-principal">
+    <form [formGroup]="productoForm" (ngSubmit)="agregarProducto()">
         <mat-form-field>
             <mat-label>Nombre</mat-label>
             <input matInput placeholder="Nombre"  formControlName="nombre">
         </mat-form-field>
         <mat-form-field>
-            <mat-label>Nombre</mat-label>
-            <input matInput placeholder="Nombre"  formControlName="precio" type="number">
+            <mat-label>Precio</mat-label>
+            <input matInput placeholder="Precio"  formControlName="precio" type="number">
         </mat-form-field>
-        <button onclick="agregarProducto()">Agregar</button>
+        <button mat-button color="primary">Agregar</button>
     </form>
 </div>
 
-<div class="div-table">
+<div class="div-table margen-principal">
     <table mat-table #table [dataSource]="productos">
         <ng-container matColumnDef="nombre">
             <th mat-header-cell *matHeaderCellDef> Nombre </th>
             <td mat-cell *matCellDef="let row"> {{row.nombre}} </td>
         </ng-container>
         <ng-container matColumnDef="precio">
-            <th mat-header-cell *matHeaderCellDef> Precio </th>
+            <th mat-header-cell *matHeaderCellDef> Precio (MXN) </th>
             <td mat-cell *matCellDef="let row"> {{row.precio}} </td>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="['nombre', 'precio']"></tr>
