@@ -7,13 +7,17 @@ import { Producto } from "../model/producto.model";
   providedIn: 'root'
 })
 export class ProductoService {
+  private baseUrl: string = 'http://127.0.0.1:8000/api';
+  constructor(private http: HttpClient) {}
+  eliminarProducto(id: number): Observable<void> {
+    return this.http.delete<any>(this.baseUrl+'/productos/'+id)
+  }
+  actualizarProducto(producto: Producto): Observable<void> {
+    return this.http.put<any>(this.baseUrl+'/productos/'+producto.id, producto)
+  }
   agregarProducto(producto: Producto): Observable<void> {
     return this.http.post<any>(this.baseUrl+'/productos', producto);
   }
-  private baseUrl: string = 'http://127.0.0.1:8000/api';
-
-  constructor(private http: HttpClient) {}
-
   getProductos(): Observable<{data: Producto[]}> {
     return this.http.get<{data: Producto[]}>(this.baseUrl+'/productos');
   }

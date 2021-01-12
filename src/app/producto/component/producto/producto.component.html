@@ -3,7 +3,9 @@
 </div>
 
 <div class="div-form margen-principal">
-    <form [formGroup]="productoForm" (ngSubmit)="agregarProducto()">
+    <form
+        [formGroup]="productoForm"
+    >
         <mat-form-field>
             <mat-label>Nombre</mat-label>
             <input matInput placeholder="Nombre"  formControlName="nombre">
@@ -12,7 +14,11 @@
             <mat-label>Precio</mat-label>
             <input matInput placeholder="Precio"  formControlName="precio" type="number">
         </mat-form-field>
-        <button mat-button color="primary">Agregar</button>
+        <button *ngIf="productoForm.value.id == null; else elseBlock" mat-button color="primary" (click)="agregarProducto()">Agregar</button>
+        <ng-template #elseBlock>
+            <button mat-button color="primary" (click)="actualizarProducto()">Actualizar</button>
+            <button (click)="limpiarForm()" mat-button>Cancelar</button>
+        </ng-template>
     </form>
 </div>
 
@@ -24,9 +30,16 @@
         </ng-container>
         <ng-container matColumnDef="precio">
             <th mat-header-cell *matHeaderCellDef> Precio (MXN) </th>
-            <td mat-cell *matCellDef="let row"> {{row.precio}} </td>
+            <td mat-cell *matCellDef="let row" class="cell-precio"> {{row.precio}} </td>
         </ng-container>
-        <tr mat-header-row *matHeaderRowDef="['nombre', 'precio']"></tr>
-        <tr mat-row *matRowDef="let row; columns: ['nombre', 'precio'];"></tr>
+        <ng-container matColumnDef="acciones">
+            <th mat-header-cell *matHeaderCellDef> Acciones </th>
+            <td mat-cell *matCellDef="let row" class="cell-acciones">
+                <button mat-button (click)="editandoProducto(row)">Editar</button>
+                <button mat-button (click)="eliminarProducto(row.id)" color="danger">Eliminar</button>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="['nombre', 'precio', 'acciones']"></tr>
+        <tr mat-row *matRowDef="let row; columns: ['nombre', 'precio', 'acciones'];"></tr>
     </table>
 </div>
